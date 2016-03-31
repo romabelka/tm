@@ -13,7 +13,7 @@ const enhancer = compose(...commonMiddlewares.concat(envMiddlewares))
 const store = createStore(reducer, {}, enhancer)
 
 //for debug only, no need in production
-window.store = store
+if (!isPropduction) window.store = store
 
 if (module.hot) {
     module.hot.accept('../reducers', () => store.replaceReducer(require('../reducers').default))
