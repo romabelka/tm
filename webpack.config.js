@@ -2,15 +2,10 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'cheap-module-eval-source-map',
     entry: [
-        './src/app.js'
+        './src/index.js'
     ],
-    resolve: {
-        alias: {
-            'react': 'react'
-        }
-    },
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'bundle.js',
@@ -23,6 +18,14 @@ module.exports = {
         }],
         historyApiFallback: true
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('development')
+            }
+        }),
+        new webpack.NoErrorsPlugin()
+    ],
     module: {
         loaders: [
             {
