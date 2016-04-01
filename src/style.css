@@ -18,3 +18,8 @@
     padding-left: 20px;
     display: table-cell;
 }
+
+.datepicker-block {
+    position: absolute;
+    background-color: white;
+}

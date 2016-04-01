@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import editable from '../HOC/editable'
+import DayPicker from "react-day-picker"
+
+import "react-day-picker/lib/style.css"
 
 class EditableDate extends Component {
     static propTypes = {
@@ -11,10 +14,20 @@ class EditableDate extends Component {
 
     render() {
         const { editable, date, makeEditable, blur } = this.props
-        return (
-            <div>
+        return editable ? this.getEditable() : this.getRegular()
+    }
 
-            </div>
+    getEditable() {
+        return <div className="datepicker-block"><DayPicker onDayClick={ (e, day) => this.props.blur(day)() } /></div>
+
+    }
+
+    handleChange = date => this.props.blur(date)
+
+    getRegular() {
+        const { date, makeEditable } = this.props
+        return (
+            <div onClick = {makeEditable}>{date.toJSON()}</div>
         )
     }
 }

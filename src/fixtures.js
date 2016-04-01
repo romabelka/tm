@@ -39,19 +39,19 @@ export const projects = fromJS({
     11: {
         id: '11',
         name: 'site',
-        startData: new Date('03/20/2016'),
+        startDate: new Date('03/20/2016'),
         endDate: new Date('04/10/2016')
     },
     12: {
         id: '12',
         name: 'advertisement',
-        startData: new Date('04/01/2016'),
+        startDate: new Date('04/01/2016'),
         endDate: new Date('05/10/2016')
     },
     13: {
         id: '13',
         name: 'sales',
-        startData: new Date('05/01/2016'),
+        startDate: new Date('05/01/2016'),
         endDate: new Date('07/10/2016')
     }
 })
