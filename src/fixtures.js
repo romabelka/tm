@@ -8,11 +8,13 @@ export const employees = fromJS({
         projects: {
             11: {
                 startDate: new Date('03/20/2016'),
-                endDate: new Date('04/05/2016')
+                endDate: new Date('04/05/2016'),
+                role: 'programmer'
             },
             12: {
                 startDate: new Date('04/01/2016'),
-                endDate: new Date('04/20/2016')
+                endDate: new Date('04/20/2016'),
+                role: 'manager'
             }
         }
     },
@@ -23,7 +25,8 @@ export const employees = fromJS({
         projects: {
             11: {
                 startDate: new Date('04/01/2016'),
-                endDate: new Date('04/10/2016')
+                endDate: new Date('04/10/2016'),
+                role: 'support'
             }
         }
     }
