@@ -1,17 +1,16 @@
 import React, { Component, PropTypes } from 'react'
+import EmployeeDetails from '../../containers/EmployeeDetails'
 
-class EmpolyeeDetails extends Component {
+class EmpolyeeDetailsPage extends Component {
     static propTypes = {
 
     };
 
     render() {
         return (
-            <div>
-                Employee details page for {this.props.params.id}
-            </div>
+            <EmployeeDetails id = {this.props.params.id} />
         )
     }
 }
 
-export default EmpolyeeDetails
+export default EmpolyeeDetailsPage

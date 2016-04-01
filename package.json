@@ -27,6 +27,7 @@
     "css-loader": "^0.23.1",
     "immutable": "^3.7.6",
     "react": "~0.14.7",
+    "react-datepicker": "^0.25.0",
     "react-dom": "~0.14.7",
     "react-redux": "^4.4.1",
     "react-router": "^2.0.1",

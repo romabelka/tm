@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import EmployeeList from '../../containers/EmployeeList'
 
 class EmployeeIndex extends Component {
     static propTypes = {
@@ -8,7 +9,7 @@ class EmployeeIndex extends Component {
     render() {
         return (
             <div>
-                <div>Sortable list of employees</div>
+                <EmployeeList />
                 {this.props.children}
             </div>
         )

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import ProjectList from '../../containers/ProjectList'
 
 class ProjectIndex extends Component {
     static propTypes = {
@@ -8,7 +9,7 @@ class ProjectIndex extends Component {
     render() {
         return (
             <div>
-                <div>Sortable list of projects</div>
+                <ProjectList />
                 {this.props.children}
             </div>
         )
