@@ -9,8 +9,8 @@ class Menu extends Component {
     render() {
         return (
             <ul>
-                <li><Link to="/employee" activeClass="active">Employees</Link></li>
-                <li><Link to="/project" activeClass="active">Project</Link></li>
+                <li><Link to="/employee" activeClassName="active">Employees</Link></li>
+                <li><Link to="/project" activeClassName="active">Project</Link></li>
             </ul>
         )
     }

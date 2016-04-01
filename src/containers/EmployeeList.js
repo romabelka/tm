@@ -15,7 +15,7 @@ class EmployeeList extends Component {
 }
 
 function renderer(employee) {
-    return <Link to={`/employee/${employee.get('id')}`} activeClass="active">{employee.get('name')}</Link>
+    return <Link to={`/employee/${employee.get('id')}`}>{employee.get('name')}</Link>
 }
 
 export default connect(state => {
