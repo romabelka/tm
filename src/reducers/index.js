@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
+import employees from './employees'
+import projects from './projects'
 
 export default combineReducers({
-    counter
+    employees,
+    projects
 })

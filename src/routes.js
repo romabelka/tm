@@ -8,7 +8,7 @@ import EmployeeDetails from './RouteHandlers/Employee/Details'
 import NotFound from './RouteHandlers/NotFound'
 
 export default (
-    <Router history = {hashHistory}>
+    <Router history = {browserHistory}>
         <Route path = "/" component = {Root}>
             <IndexRedirect to = "project" />
             <Route path = "employee" component = {EmployeeIndex}>
