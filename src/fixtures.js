@@ -44,5 +44,11 @@ export const projects = fromJS({
         name: 'advertisement',
         startData: new Date('04/01/2016'),
         endDate: new Date('05/10/2016')
+    },
+    13: {
+        id: '13',
+        name: 'sales',
+        startData: new Date('05/01/2016'),
+        endDate: new Date('07/10/2016')
     }
 })
