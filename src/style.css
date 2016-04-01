@@ -1,3 +1,20 @@
 .active {
     color: red
 }
+
+.menu-item {
+    display: inline;
+    margin: 20px;
+}
+
+.list-block {
+    display: table-cell;
+    width: 200px;
+    margin-right: 20px;
+    border-right: 1px solid black;
+}
+
+.details-block {
+    padding-left: 20px;
+    display: table-cell;
+}

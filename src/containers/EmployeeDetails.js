@@ -8,7 +8,7 @@ class EmployeeDetails extends Component {
 
     render() {
         return (
-            <div>
+            <div className="details-block">
                 employee {this.props.id}
             </div>
         )

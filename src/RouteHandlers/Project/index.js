@@ -9,7 +9,9 @@ class ProjectIndex extends Component {
     render() {
         return (
             <div>
-                <ProjectList />
+                <div className="list-block">
+                    <ProjectList />
+                </div>
                 {this.props.children}
             </div>
         )

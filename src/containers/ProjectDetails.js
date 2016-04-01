@@ -8,7 +8,7 @@ class ProjectDetails extends Component {
 
     render() {
         return (
-            <div>
+            <div className="details-block">
                 project {this.props.id}
             </div>
         )

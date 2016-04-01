@@ -9,7 +9,9 @@ class EmployeeIndex extends Component {
     render() {
         return (
             <div>
-                <EmployeeList />
+                <div className="list-block">
+                    <EmployeeList />
+                </div>
                 {this.props.children}
             </div>
         )
