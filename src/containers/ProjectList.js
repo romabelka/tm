@@ -15,7 +15,7 @@ class ProjectList extends Component {
 }
 
 function renderer(project) {
-    return <Link to={`/project/${project.get('id')}`}>{project.get('name')}</Link>
+    return <Link to={`/project/${project.get('id')}`} activeClass="active">{project.get('name')}</Link>
 }
 
 export default connect(state => {

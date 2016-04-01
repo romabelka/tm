@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import SortableList from './SortableList'
+import SortableList from './SortableList/index'
 
 class FilterableList extends Component {
     static propTypes = {
