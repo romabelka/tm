@@ -16,6 +16,8 @@ class ProjectDetails extends Component {
 
     render() {
         const { id, projects, changeEmployeeProjectField, goToEntity } = this.props
+        if (projects.get('loading')) return <h1>Loading, please wait</h1>
+
         const project = projects.getIn(['entities', id])
         if (!project) return <h3 className="details-block">Sorry, no such project with id: {id}</h3>
         return (
