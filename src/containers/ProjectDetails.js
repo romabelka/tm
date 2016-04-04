@@ -12,8 +12,9 @@ class ProjectDetails extends Component {
 
     render() {
         const { id, employees, projects } = this.props
-        const project = projects.get(id)
-        const projectEmployees = employees.filter(employee => employee.getIn(['projects', project.get('id')]))
+        const project = projects.getIn(['entities', id])
+        const projectEmployees = employees.get('entities')
+            .filter(employee => employee.getIn(['projects', project.get('id')]))
         return (
             <div className="details-block">
                 project {this.props.id}

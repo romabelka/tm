@@ -9,7 +9,7 @@ class ProjectList extends Component {
     };
 
     render() {
-        return <ItemsList items = {this.props.projects} renderer = {renderer} />
+        return <ItemsList items = {this.props.projects.get('entities')} renderer = {renderer} />
 
     }
 }

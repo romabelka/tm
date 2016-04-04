@@ -9,7 +9,7 @@ class EmployeeList extends Component {
     };
 
     render() {
-        return <ItemsList items = {this.props.employees} renderer = {renderer} />
+        return <ItemsList items = {this.props.employees.get('entities')} renderer = {renderer} />
 
     }
 }
