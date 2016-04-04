@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import editable from '../HOC/editable'
 import DayPicker from "react-day-picker"
+import moment from 'moment'
+import { dateFormat } from '../settings'
 
 import "react-day-picker/lib/style.css"
 
@@ -13,7 +15,7 @@ class EditableDate extends Component {
     };
 
     render() {
-        const { editable, date, makeEditable, blur } = this.props
+        const { editable } = this.props
         return editable ? this.getEditable() : this.getRegular()
     }
 
@@ -27,7 +29,7 @@ class EditableDate extends Component {
     getRegular() {
         const { date, makeEditable } = this.props
         return (
-            <div onClick = {makeEditable}>{date.toJSON()}</div>
+            <div onClick = {makeEditable}>{moment(date).format('MMM Do YY')}</div>
         )
     }
 }
