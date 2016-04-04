@@ -15,3 +15,13 @@ export function getProjectEmployees(projectId) {
     return store.getState().employees.get('entities')
         .filter(employee => employee.getIn(['projects', projectId]))
 }
+
+//danger: this function mutates original  object
+export function parseDates(object) {
+    Object.keys(object).forEach(key => {
+        const val = object[key]
+        if (typeof val == 'object' && !Array.isArray(val)) return parseDates(val)
+        if (key.includes('Date')) object[key] = new Date(val)
+    })
+    return object
+}

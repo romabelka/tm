@@ -10,6 +10,7 @@ export const MARK_PROJECT_AS_READ = 'MARK_PROJECT_AS_READ'
 export const ADD_APP_ERROR = 'ADD_APP_ERROR'
 export const REMOVE_APP_ERROR = 'REMOVE_APP_ERROR'
 
+export const FETCH_ALL = 'FETCH_ALL'
 
 export const START = '_START'
 export const SUCCESS = '_SUCCESS'

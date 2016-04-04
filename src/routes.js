@@ -8,11 +8,12 @@ import EmployeeDetails from './RouteHandlers/Employee/Details'
 import NotFound from './RouteHandlers/NotFound'
 import { markEmployeeAsRead } from './actions/employees'
 import { markProjectAsRead } from './actions/projects'
+import { fetchAll } from './actions/common'
 import store from './store'
 
 export default (
     <Router history = {browserHistory}>
-        <Route path = "/" component = {Root}>
+        <Route path = "/" component = {Root} onEnter = {() => store.dispatch(fetchAll())}>
             <IndexRedirect to = "project" />
             <Route path = "employee" component = {EmployeeIndex}>
                 <Route path = ":id" component = {EmployeeDetails}
