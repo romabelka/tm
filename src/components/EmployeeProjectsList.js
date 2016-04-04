@@ -5,6 +5,7 @@ import EditableText from '../components/EditableText'
 import Modal from 'react-modal'
 import toggleOpen from '../HOC/toggleOpen'
 
+//todo should reuse this modal logic for lists
 class ProjectEmployeesList extends Component {
     static propTypes = {
         employee: PropTypes.object.isRequired,
@@ -14,6 +15,7 @@ class ProjectEmployeesList extends Component {
         open: PropTypes.func.isRequired,
         close: PropTypes.func.isRequired
     };
+
     static contextTypes = {
         router: PropTypes.object
     }
@@ -37,7 +39,7 @@ class ProjectEmployeesList extends Component {
         if (!projectInModalId) return null
         return (
             <Modal isOpen = {isOpen} onRequestClose={close}>
-                <ProjectDetails id = {projectInModalId} />
+                <ProjectDetails id = {projectInModalId} goToEntity = {this.goToEntity}/>
             </Modal>
         )
     }
@@ -65,18 +67,22 @@ class ProjectEmployeesList extends Component {
         return <ul>{elements}</ul>
     }
 
-
-
     handleNameClick = id => ev => {
         ev.preventDefault()
-        const { router } = this.context
-        const isEmployeePage = router.isActive('/employee')
-        if (!isEmployeePage) return router.push(`/project/${id}`)
-        this.props.open()
+        const { open, goToEntity } = this.props
+        if (goToEntity) return goToEntity(id)
+
+        open()
         this.setState({
             projectInModalId: id
         })
     }
+
+    goToEntity = (id) => {
+        this.props.close()
+        this.context.router.push(`/employee/${id}`)
+    }
+
 
     handleChange = (field, projectId) => (value) => {
         this.props.changeField({

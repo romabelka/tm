@@ -8,6 +8,7 @@ import { changeEmployeeProjectField, changeEmployeeField } from '../actions/empl
 class EmployeeDetails extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
+        goToEntity: PropTypes.func,
         employees: PropTypes.object.isRequired,
         projects: PropTypes.object.isRequired,
         changeEmployeeField: PropTypes.func.isRequired,
@@ -15,7 +16,7 @@ class EmployeeDetails extends Component {
     };
 
     render() {
-        const { id, employees, projects, changeEmployeeProjectField } = this.props
+        const { id, employees, projects, changeEmployeeProjectField, goToEntity } = this.props
         const employee = employees.getIn(['entities', id])
         return (
         <div className="details-block">
@@ -32,7 +33,12 @@ class EmployeeDetails extends Component {
                 <tr>
                     <td>Projects:</td>
                     <td>
-                        <EmployeeProjectsList employee = {employee} projects = {projects} changeField = {changeEmployeeProjectField} />
+                        <EmployeeProjectsList
+                            employee = {employee}
+                            projects = {projects}
+                            changeField = {changeEmployeeProjectField}
+                            goToEntity = {goToEntity}
+                        />
                     </td>
                 </tr>
                 </tbody>
