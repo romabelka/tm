@@ -3,9 +3,10 @@ import reducer from '../reducers'
 import multi from 'redux-multi'
 import thunk from 'redux-thunk'
 import randomId from '../middlewares/randomId'
+import validator from '../middlewares/validator'
 
 const isPropduction = process.env.NODE_ENV == "production"
-const commonMiddlewares = [applyMiddleware(multi, thunk, randomId)]
+const commonMiddlewares = [applyMiddleware(multi, thunk, randomId, validator)]
 const envMiddlewares = isPropduction ? require('./prod').default : require('./dev').default
 
 const enhancer = compose(...commonMiddlewares.concat(envMiddlewares))

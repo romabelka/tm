@@ -6,3 +6,11 @@ export function getRelation(entity, relation) {
     if (!entity[relation] || !state[relation]) return []
     return state[relation].get('entities').filter(el => entity[relation].includes(el.id))
 }
+
+export function getEmploeeProjects(employee) {
+
+}
+
+export function getProjectEmployees(project) {
+
+}

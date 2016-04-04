@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import EditableDate from '../components/EditableDate'
 import EditableText from '../components/EditableText'
+import { changeProjectField } from '../actions/projects'
 
 class ProjectDetails extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
         employees: PropTypes.object.isRequired,
-        projects: PropTypes.object.isRequired
+        projects: PropTypes.object.isRequired,
+        changeProjectField: PropTypes.func.isRequired
     };
 
     render() {
@@ -38,12 +40,15 @@ class ProjectDetails extends Component {
         )
     }
 
-    handleSave = field => state => {
-        console.log('saving', {[field]: state});
+    handleSave = field => value => {
+        this.props.changeProjectField(this.props.id, field, value)
+        console.log('saving', {[field]: value});
     }
 }
 
 export default connect(state => {
     const { employees, projects } = state
     return { employees, projects }
+}, {
+    changeProjectField
 })(ProjectDetails)
