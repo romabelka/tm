@@ -2,20 +2,19 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import EditableDate from '../components/EditableDate'
 import EditableText from '../components/EditableText'
+import ProjectEmployeesList from '../components/ProjectEmployeesList'
 import { changeProjectField } from '../actions/projects'
-import { getProjectEmployees } from '../utils'
+import { changeEmployeeProjectField } from '../actions/employees'
 class ProjectDetails extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
-        employees: PropTypes.object.isRequired,
         projects: PropTypes.object.isRequired,
         changeProjectField: PropTypes.func.isRequired
     };
 
     render() {
-        const { id, employees, projects } = this.props
+        const { id, projects, changeEmployeeProjectField } = this.props
         const project = projects.getIn(['entities', id])
-        const projectEmployees = getProjectEmployees(id)
         return (
             <div className="details-block">
                 project {this.props.id}
@@ -33,6 +32,10 @@ class ProjectDetails extends Component {
                             <td>Completion Date: </td>
                             <td><EditableDate date = {project.get('endDate')} save = {this.handleSave('endDate')}/></td>
                         </tr>
+                        <tr>
+                            <td>Employees:</td>
+                            <td><ProjectEmployeesList project = {project} changeField = {changeEmployeeProjectField}/></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -46,8 +49,8 @@ class ProjectDetails extends Component {
 }
 
 export default connect(state => {
-    const { employees, projects } = state
-    return { employees, projects }
+    const { projects, employees } = state
+    return { projects, employees }
 }, {
-    changeProjectField
+    changeProjectField, changeEmployeeProjectField
 })(ProjectDetails)
