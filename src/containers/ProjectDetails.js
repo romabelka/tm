@@ -5,6 +5,7 @@ import EditableText from '../components/EditableText'
 import ProjectEmployeesList from '../components/ProjectEmployeesList'
 import { changeProjectField } from '../actions/projects'
 import { changeEmployeeProjectField } from '../actions/employees'
+
 class ProjectDetails extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
@@ -43,7 +44,6 @@ class ProjectDetails extends Component {
 
     handleSave = field => value => {
         this.props.changeProjectField(this.props.id, field, value)
-        console.log('saving', {[field]: value});
     }
 }
 

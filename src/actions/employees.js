@@ -1,12 +1,15 @@
 import { CHANGE_EMPLOYEE_FIELD, CHANGE_EMPLOYEE_PROJECT_FIELD, NEW_EMPLOYEE } from '../constants'
 import { getProjectEmployees } from '../utils'
+import { emailRegExp} from '../settings'
 
-export function changeProjectField(id, field, value) {
+export function changeEmployeeField(id, field, value) {
+    const validate =  validations[field] ?  validations[field](value) : null
     return {
         type: CHANGE_EMPLOYEE_FIELD,
         data: {
             id, field, value
-        }
+        },
+        validate
     }
 }
 
@@ -34,6 +37,9 @@ const validations = {
         const employee = store.employees.getIn(['entities', eId])
         if (employee.getIn(['projects', projectId,'startDate']) > value) return "End date can't be less then start"
         return validateDateRange(project, value)
+    },
+    email: value => store => {
+        if (!emailRegExp.test(value)) return 'Invalid Email'
     }
 }
 
