@@ -7,9 +7,10 @@ export default function (CustomComponent) {
         }
 
         render() {
+            const { toggleOpen, open, close } = this
             return <CustomComponent
                 {...this.state}
-                {...{toggleOpen: this.toggleOpen}}
+                {...{toggleOpen, open, close}}
                 {...this.props}
             />
         }
@@ -23,6 +24,11 @@ export default function (CustomComponent) {
         close = () => {
             this.setState({
                 isOpen: false
+            })
+        }
+        open = () => {
+            this.setState({
+                isOpen: true
             })
         }
     }

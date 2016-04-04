@@ -10,10 +10,10 @@ class Menu extends Component {
         return (
             <ul>
                 <li className="menu-item">
-                    <Link to="/employee" activeClassName="active">Employees</Link>
+                    <Link to="/employee">Employees</Link>
                 </li>
                 <li className="menu-item">
-                    <Link to="/project" activeClassName="active">Project</Link>
+                    <Link to="/project">Projects</Link>
                 </li>
             </ul>
         )
