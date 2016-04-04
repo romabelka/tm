@@ -12,7 +12,7 @@ import { fetchAll } from './actions/common'
 import store from './store'
 
 export default (
-    <Router history = {browserHistory}>
+    <Router history = {hashHistory}>
         <Route path = "/" component = {Root} onEnter = {() => store.dispatch(fetchAll())}>
             <IndexRedirect to = "project" />
             <Route path = "employee" component = {EmployeeIndex}>
