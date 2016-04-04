@@ -1,6 +1,13 @@
-import { CHANGE_EMPLOYEE_FIELD, CHANGE_EMPLOYEE_PROJECT_FIELD, NEW_EMPLOYEE } from '../constants'
+import { CHANGE_EMPLOYEE_FIELD, CHANGE_EMPLOYEE_PROJECT_FIELD, NEW_EMPLOYEE, MARK_EMPLOYEE_AS_READ } from '../constants'
 import { getProjectEmployees } from '../utils'
 import { emailRegExp} from '../settings'
+
+export function markEmployeeAsRead(id) {
+    return {
+        type: MARK_EMPLOYEE_AS_READ,
+        data: { id }
+    }
+}
 
 export function changeEmployeeField(id, field, value) {
     const validate =  validations[field] ?  validations[field](value) : null

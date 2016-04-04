@@ -12,12 +12,12 @@ class ProjectList extends Component {
 
     render() {
         return <ItemsList items = {this.props.projects.get('entities')} renderer = {renderer} />
-
     }
 }
 
 function renderer(project) {
-    return <Link to={`/project/${project.get('id')}`}>{project.get('name')}</Link>
+    const unread = project.get('read') ? null : <b> -unread</b>
+    return <Link to={`/project/${project.get('id')}`}>{project.get('name')} {unread}</Link>
 }
 
 export default connect(state => {

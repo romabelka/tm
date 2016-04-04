@@ -1,5 +1,12 @@
-import { CHANGE_PROJECT_FIELD, NEW_PROJECT } from '../constants'
+import { CHANGE_PROJECT_FIELD, NEW_PROJECT, MARK_PROJECT_AS_READ } from '../constants'
 import { getProjectEmployees } from '../utils'
+
+export function markProjectAsRead(id) {
+    return {
+        type: MARK_PROJECT_AS_READ,
+        data: { id }
+    }
+}
 
 export function changeProjectField(id, field, value) {
     const validate = validations[field] ? validations[field](id, value) : null
