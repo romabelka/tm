@@ -6,7 +6,7 @@ const defaultState = Map({
     loading: false,
     loaded: true,
     error: null,
-    entities: defaultProjects
+    entities: new Map({})
 })
 
 export default (projects = defaultState, action) => {

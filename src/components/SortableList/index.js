@@ -16,6 +16,12 @@ class SortableList extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.items != nextProps.items) this.setState({
+            order: nextProps.items.toArray().map(item => item.get('id'))
+        })
+    }
+
     render() {
         return <ul>{this.getListItems()}</ul>
     }
