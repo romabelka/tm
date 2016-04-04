@@ -17,9 +17,8 @@ class ProjectEmployeesList extends Component {
         const elements = projects.toArray().map(project => {
             const projectId = project.get('id')
             const projectData = employee.getIn(['projects', projectId])
-            const eId = employee.get('id')
             return (
-                <li key = {eId}>
+                <li key = {projectId}>
                     <ul>
                         <li>name: {project.get('name')}</li>
                         <li>role: <EditableText text = {projectData.get('role')} save = {this.handleChange('role', projectId)} /></li>
@@ -29,6 +28,7 @@ class ProjectEmployeesList extends Component {
                 </li>
             )
         })
+
         return (
             <ul>
                 {elements}
