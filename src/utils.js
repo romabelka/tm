@@ -11,6 +11,7 @@ export function getEmploeeProjects(employee) {
 
 }
 
-export function getProjectEmployees(project) {
-
+export function getProjectEmployees(projectId) {
+    return store.getState().employees.get('entities')
+        .filter(employee => employee.getIn(['projects', projectId]))
 }

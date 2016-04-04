@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import Menu from '../../components/Menu'
+import AppHeader from '../../containers/AppHeader'
 import store from '../../store'
 
 class Root extends Component {
@@ -8,7 +8,7 @@ class Root extends Component {
         return (
             <Provider store={store}>
                 <div>
-                    <Menu />
+                    <AppHeader />
                     {this.props.children}
                 </div>
             </Provider>

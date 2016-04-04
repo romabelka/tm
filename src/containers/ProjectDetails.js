@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import EditableDate from '../components/EditableDate'
 import EditableText from '../components/EditableText'
 import { changeProjectField } from '../actions/projects'
-
+import { getProjectEmployees } from '../utils'
 class ProjectDetails extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
@@ -15,8 +15,7 @@ class ProjectDetails extends Component {
     render() {
         const { id, employees, projects } = this.props
         const project = projects.getIn(['entities', id])
-        const projectEmployees = employees.get('entities')
-            .filter(employee => employee.getIn(['projects', project.get('id')]))
+        const projectEmployees = getProjectEmployees(id)
         return (
             <div className="details-block">
                 project {this.props.id}
