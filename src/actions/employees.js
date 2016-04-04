@@ -11,12 +11,13 @@ export function changeProjectField(id, field, value) {
 }
 
 export function changeEmployeeProjectField({ eId, projectId, field, value }) {
+    const validate =  validations[field] ?  validations[field]({ eId, projectId, value }) : null
     return {
         type: CHANGE_EMPLOYEE_PROJECT_FIELD,
         data: {
             eId, projectId, field, value
         },
-        validate: validations[field]({ eId, projectId, value })
+        validate
     }
 }
 

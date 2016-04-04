@@ -8,14 +8,40 @@ class EditableText extends Component {
         makeEditable: PropTypes.func.isRequired,
         blur: PropTypes.func.isRequired
     };
+    constructor(props) {
+        super(props)
+        this.state = {
+            text: props.text
+        }
+    }
+
 
     render() {
-        const { editable, text, makeEditable, blur } = this.props
-        return (
-            <div>
-                {text}
-            </div>
-        )
+        const { editable } = this.props
+        return editable ? this.getEditable() : this.getRegular()
+    }
+
+    getRegular() {
+        return <span onClick = {this.makeEditable}>{this.props.text}</span>
+    }
+
+    getEditable() {
+        const { text } = this.state
+        return <form onSubmit = {this.props.blur(text)}>
+            <input type="text" value={text}  onChange = {this.handleChange} autoFocus={true}/>
+        </form>
+    }
+
+    makeEditable = () => {
+        const { text, makeEditable } = this.props
+        this.setState({ text })
+        makeEditable()
+    }
+
+    handleChange = (ev) => {
+        this.setState({
+            text: ev.target.value
+        })
     }
 }
 

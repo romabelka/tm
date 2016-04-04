@@ -20,7 +20,7 @@ class ProjectEmployeesList extends Component {
                 <li key = {eId}>
                     <ul>
                         <li>name: {employee.get('name')}</li>
-                        <li>role: {projectData.get('role')}</li>
+                        <li>role: <EditableText text = {projectData.get('role')} save = {this.handleChange('role', eId)} /></li>
                         <li>start date: <EditableDate date = {projectData.get('startDate')} save = {this.handleChange('startDate', eId)} /></li>
                         <li>end date:  <EditableDate date = {projectData.get('endDate')} save = {this.handleChange('endDate', eId)} /></li>
                     </ul>

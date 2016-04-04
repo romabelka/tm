@@ -17,7 +17,6 @@ class ProjectDetails extends Component {
         const project = projects.getIn(['entities', id])
         return (
             <div className="details-block">
-                project {this.props.id}
                 <table>
                     <tbody>
                         <tr>

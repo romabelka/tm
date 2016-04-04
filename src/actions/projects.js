@@ -2,12 +2,13 @@ import { CHANGE_PROJECT_FIELD, NEW_PROJECT } from '../constants'
 import { getProjectEmployees } from '../utils'
 
 export function changeProjectField(id, field, value) {
+    const validate = validations[field] ? validations[field](id, value) : null
     return {
         type: CHANGE_PROJECT_FIELD,
         data: {
             id, field, value
         },
-        validate: validations[field](id, value)
+        validate
     }
 }
 
