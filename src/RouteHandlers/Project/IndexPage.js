@@ -7,7 +7,7 @@ class IndexPage extends Component {
 
     render() {
         return (
-            <div>
+            <div className="details-block">
                 <h1>Please select Project you want</h1>
             </div>
         )
